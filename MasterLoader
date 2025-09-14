@@ -1,5 +1,5 @@
 -- // Konfigurasi Key
-local REQUIRED_KEY = "tes"
+local REQUIRED_KEY = "veeterankontop"
 
 -- // Services
 local Players = game:GetService("Players")
