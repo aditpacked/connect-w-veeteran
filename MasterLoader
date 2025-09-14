@@ -1,5 +1,5 @@
 -- // Konfigurasi Key
-local REQUIRED_KEY = "v3eTerank"
+local REQUIRED_KEY = "tes"
 
 -- // Services
 local Players = game:GetService("Players")
@@ -41,7 +41,7 @@ local Title = Instance.new("TextLabel")
 Title.Parent = MainFrame
 Title.Size = UDim2.new(1, 0, 0, 40)
 Title.BackgroundTransparency = 1
-Title.Text = "VEET - Learner" -- ✅ Hanya teks, tanpa emot
+Title.Text = "VEET - Learner" -- ✅ Hanya teks
 Title.Font = Enum.Font.GothamSemibold
 Title.TextSize = 20
 Title.TextColor3 = Color3.fromRGB(120, 180, 255)
@@ -126,7 +126,8 @@ local function verifyKey()
         local placeScripts = {
             [108448055225264] = "https://raw.githubusercontent.com/aditpacked/connect-w-veeteran/refs/heads/main/LoaderTP4khirat",
             [128473079243102] = "https://raw.githubusercontent.com/aditpacked/connect-w-veeteran/refs/heads/main/LoaderTP4runika",
-            [81721415693976]  = "https://raw.githubusercontent.com/aditpacked/connect-w-veeteran/refs/heads/main/LoaderTP5eribu"
+            [81721415693976]  = "https://raw.githubusercontent.com/aditpacked/connect-w-veeteran/refs/heads/main/LoaderTP5eribu",
+            [102234703920418] = "https://raw.githubusercontent.com/aditpacked/connect-w-veeteran/refs/heads/main/LoaderWalkD4un" -- ✅ ID baru
         }
 
         local currentPlaceId = game.PlaceId
