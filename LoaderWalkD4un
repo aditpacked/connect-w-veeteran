@@ -1,0 +1,3 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/aditpacked/twetedaunvol2/refs/heads/main/bypastmer"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/aditpacked/twetedaunvol2/refs/heads/main/resee.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/hassanxzayn-lua/Anti-afk/main/antiafkbyhassanxzyn"))()
