@@ -18,18 +18,16 @@ BlurFrame.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
 BlurFrame.BackgroundTransparency = 0.25
 BlurFrame.Parent = ScreenGui
 
--- Frame utama
+-- Frame utama (center screen)
 local MainFrame = Instance.new("Frame")
 MainFrame.Size = UDim2.new(0, 350, 0, 200)
-MainFrame.Position = UDim2.new(0.5, -175, 0.5, -100)
+MainFrame.Position = UDim2.new(0.5, 0, 0.5, 0) -- ✅ center layar
+MainFrame.AnchorPoint = Vector2.new(0.5, 0.5)  -- anchor ke tengah
 MainFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 30)
 MainFrame.BorderSizePixel = 0
-MainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
 MainFrame.Parent = BlurFrame
 MainFrame.ZIndex = 2
 MainFrame.ClipsDescendants = true
-
--- Rounded corners
 Instance.new("UICorner", MainFrame).CornerRadius = UDim.new(0, 16)
 
 -- Soft shadow
@@ -53,7 +51,7 @@ Title.BackgroundTransparency = 1
 Title.Text = "🔒 Key Verification"
 Title.Font = Enum.Font.GothamSemibold
 Title.TextSize = 20
-Title.TextColor3 = Color3.fromRGB(120, 180, 255) -- Neon biru
+Title.TextColor3 = Color3.fromRGB(120, 180, 255)
 Title.ZIndex = 2
 
 -- Label "MASUKKAN KEY"
@@ -75,6 +73,7 @@ KeyBox.Parent = MainFrame
 KeyBox.Size = UDim2.new(0.8, 0, 0, 40)
 KeyBox.Position = UDim2.new(0.1, 0, 0.4, 0)
 KeyBox.PlaceholderText = "" -- kosong
+KeyBox.Text = ""            -- ✅ hapus default "TextBox"
 KeyBox.Font = Enum.Font.Gotham
 KeyBox.TextSize = 18
 KeyBox.TextColor3 = Color3.fromRGB(200, 200, 200)
@@ -111,19 +110,18 @@ end)
 -- Animasi glow label saat fokus
 KeyBox.Focused:Connect(function()
     TweenService:Create(KeyLabel, TweenInfo.new(0.3), {
-        TextColor3 = Color3.fromRGB(120, 180, 255) -- Neon biru
+        TextColor3 = Color3.fromRGB(120, 180, 255)
     }):Play()
 end)
 KeyBox.FocusLost:Connect(function()
     TweenService:Create(KeyLabel, TweenInfo.new(0.3), {
-        TextColor3 = Color3.fromRGB(150, 150, 200) -- balik abu-abu
+        TextColor3 = Color3.fromRGB(150, 150, 200)
     }):Play()
 end)
 
 -- Fungsi verifikasi
 local function verifyKey()
     if KeyBox.Text == REQUIRED_KEY then
-        -- Animasi close
         TweenService:Create(MainFrame, TweenInfo.new(0.5), {
             Size = UDim2.new(0, 0, 0, 0),
             BackgroundTransparency = 1
