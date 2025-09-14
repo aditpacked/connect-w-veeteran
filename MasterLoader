@@ -13,7 +13,7 @@ ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 -- Frame utama (langsung ke ScreenGui, tanpa background gelap)
 local MainFrame = Instance.new("Frame")
-MainFrame.Size = UDim2.new(0, 350, 0, 200)
+MainFrame.Size = UDim2.new(0, 350, 0, 220)
 MainFrame.Position = UDim2.new(0.5, 0, 0.5, 0) -- center layar
 MainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
 MainFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 30)
@@ -88,7 +88,29 @@ SubmitBtn.BackgroundColor3 = Color3.fromRGB(40, 40, 50)
 SubmitBtn.ZIndex = 2
 Instance.new("UICorner", SubmitBtn).CornerRadius = UDim.new(0, 12)
 
--- Animasi hover tombol
+-- Tombol GET KEY
+local LinkBtn = Instance.new("TextButton")
+LinkBtn.Parent = MainFrame
+LinkBtn.Size = UDim2.new(0.8, 0, 0, 30)
+LinkBtn.Position = UDim2.new(0.1, 0, 0.9, -10)
+LinkBtn.Text = "LINK GET KEY"
+LinkBtn.Font = Enum.Font.GothamSemibold
+LinkBtn.TextSize = 14
+LinkBtn.TextColor3 = Color3.fromRGB(120, 180, 255)
+LinkBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 40)
+LinkBtn.ZIndex = 2
+Instance.new("UICorner", LinkBtn).CornerRadius = UDim.new(0, 8)
+
+LinkBtn.MouseButton1Click:Connect(function()
+    setclipboard("https://sfl.gl/5Gqc")
+    game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "Link Copied",
+        Text = "Link GET KEY disalin ke clipboard!",
+        Duration = 3
+    })
+end)
+
+-- Animasi hover tombol Unlock
 SubmitBtn.MouseEnter:Connect(function()
     TweenService:Create(SubmitBtn, TweenInfo.new(0.25), {
         BackgroundColor3 = Color3.fromRGB(100, 60, 255)
@@ -97,6 +119,18 @@ end)
 SubmitBtn.MouseLeave:Connect(function()
     TweenService:Create(SubmitBtn, TweenInfo.new(0.25), {
         BackgroundColor3 = Color3.fromRGB(40, 40, 50)
+    }):Play()
+end)
+
+-- Animasi hover tombol Link
+LinkBtn.MouseEnter:Connect(function()
+    TweenService:Create(LinkBtn, TweenInfo.new(0.25), {
+        BackgroundColor3 = Color3.fromRGB(80, 80, 120)
+    }):Play()
+end)
+LinkBtn.MouseLeave:Connect(function()
+    TweenService:Create(LinkBtn, TweenInfo.new(0.25), {
+        BackgroundColor3 = Color3.fromRGB(30, 30, 40)
     }):Play()
 end)
 
