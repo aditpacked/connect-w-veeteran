@@ -22,23 +22,17 @@ BlurFrame.Parent = ScreenGui
 local MainFrame = Instance.new("Frame")
 MainFrame.Size = UDim2.new(0, 350, 0, 200)
 MainFrame.Position = UDim2.new(0.5, -175, 0.5, -100)
-MainFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+MainFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 30)
 MainFrame.BorderSizePixel = 0
+MainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
 MainFrame.Parent = BlurFrame
+MainFrame.ZIndex = 2
 MainFrame.ClipsDescendants = true
 
--- Styling Frame
-MainFrame.BackgroundTransparency = 0.1
-MainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
-MainFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
-MainFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 30)
-MainFrame.ZIndex = 2
+-- Rounded corners
+Instance.new("UICorner", MainFrame).CornerRadius = UDim.new(0, 16)
 
--- UICorner untuk rounded
-local corner = Instance.new("UICorner", MainFrame)
-corner.CornerRadius = UDim.new(0, 16)
-
--- Shadow
+-- Soft shadow
 local shadow = Instance.new("ImageLabel")
 shadow.Parent = MainFrame
 shadow.Size = UDim2.new(1, 30, 1, 30)
@@ -62,21 +56,32 @@ Title.TextSize = 20
 Title.TextColor3 = Color3.fromRGB(120, 180, 255) -- Neon biru
 Title.ZIndex = 2
 
+-- Label "MASUKKAN KEY"
+local KeyLabel = Instance.new("TextLabel")
+KeyLabel.Parent = MainFrame
+KeyLabel.Size = UDim2.new(0.8, 0, 0, 20)
+KeyLabel.Position = UDim2.new(0.1, 0, 0.3, -20)
+KeyLabel.BackgroundTransparency = 1
+KeyLabel.Text = "MASUKKAN KEY"
+KeyLabel.Font = Enum.Font.GothamSemibold
+KeyLabel.TextSize = 14
+KeyLabel.TextColor3 = Color3.fromRGB(150, 150, 200)
+KeyLabel.TextXAlignment = Enum.TextXAlignment.Left
+KeyLabel.ZIndex = 2
+
 -- Input Box
 local KeyBox = Instance.new("TextBox")
 KeyBox.Parent = MainFrame
 KeyBox.Size = UDim2.new(0.8, 0, 0, 40)
 KeyBox.Position = UDim2.new(0.1, 0, 0.4, 0)
-KeyBox.PlaceholderText = "Enter Key..."
+KeyBox.PlaceholderText = "" -- kosong
 KeyBox.Font = Enum.Font.Gotham
 KeyBox.TextSize = 18
 KeyBox.TextColor3 = Color3.fromRGB(200, 200, 200)
 KeyBox.BackgroundColor3 = Color3.fromRGB(15, 15, 20)
 KeyBox.ClearTextOnFocus = false
 KeyBox.ZIndex = 2
-
-local corner2 = Instance.new("UICorner", KeyBox)
-corner2.CornerRadius = UDim.new(0, 12)
+Instance.new("UICorner", KeyBox).CornerRadius = UDim.new(0, 12)
 
 -- Tombol Submit
 local SubmitBtn = Instance.new("TextButton")
@@ -89,20 +94,29 @@ SubmitBtn.TextSize = 18
 SubmitBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
 SubmitBtn.BackgroundColor3 = Color3.fromRGB(40, 40, 50)
 SubmitBtn.ZIndex = 2
+Instance.new("UICorner", SubmitBtn).CornerRadius = UDim.new(0, 12)
 
-local corner3 = Instance.new("UICorner", SubmitBtn)
-corner3.CornerRadius = UDim.new(0, 12)
-
--- Animasi hover
+-- Animasi hover tombol
 SubmitBtn.MouseEnter:Connect(function()
     TweenService:Create(SubmitBtn, TweenInfo.new(0.25), {
         BackgroundColor3 = Color3.fromRGB(100, 60, 255)
     }):Play()
 end)
-
 SubmitBtn.MouseLeave:Connect(function()
     TweenService:Create(SubmitBtn, TweenInfo.new(0.25), {
         BackgroundColor3 = Color3.fromRGB(40, 40, 50)
+    }):Play()
+end)
+
+-- Animasi glow label saat fokus
+KeyBox.Focused:Connect(function()
+    TweenService:Create(KeyLabel, TweenInfo.new(0.3), {
+        TextColor3 = Color3.fromRGB(120, 180, 255) -- Neon biru
+    }):Play()
+end)
+KeyBox.FocusLost:Connect(function()
+    TweenService:Create(KeyLabel, TweenInfo.new(0.3), {
+        TextColor3 = Color3.fromRGB(150, 150, 200) -- balik abu-abu
     }):Play()
 end)
 
