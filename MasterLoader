@@ -1,5 +1,5 @@
 -- // Konfigurasi Key
-local REQUIRED_KEY = "veeterankontop"
+local REQUIRED_KEY = "popupstr
 
 -- // Services
 local Players = game:GetService("Players")
