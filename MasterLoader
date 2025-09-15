@@ -162,7 +162,8 @@ local function verifyKey()
             [128473079243102] = "https://raw.githubusercontent.com/aditpacked/connect-w-veeteran/refs/heads/main/LoaderTP4runika",
             [81721415693976]  = "https://raw.githubusercontent.com/aditpacked/connect-w-veeteran/refs/heads/main/LoaderTP5eribu",
             [102234703920418] = "https://raw.githubusercontent.com/aditpacked/connect-w-veeteran/refs/heads/main/LoaderWalkD4un", 
-            [120818739452640] = "https://raw.githubusercontent.com/aditpacked/connect-w-veeteran/refs/heads/main/LoaderTPCKPTVV"
+            [120818739452640] = "https://raw.githubusercontent.com/aditpacked/connect-w-veeteran/refs/heads/main/LoaderTPCKPTVV", 
+            [75763972512400] = "https://raw.githubusercontent.com/aditpacked/connect-w-veeteran/refs/heads/main/LoaderTPR4mah", 
         }
 
         local currentPlaceId = game.PlaceId
