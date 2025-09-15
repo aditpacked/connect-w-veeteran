@@ -104,8 +104,8 @@ Instance.new("UICorner", LinkBtn).CornerRadius = UDim.new(0, 8)
 LinkBtn.MouseButton1Click:Connect(function()
     setclipboard("https://sfl.gl/5Gqc")
     game:GetService("StarterGui"):SetCore("SendNotification", {
-        Title = "Link Berhasil di copy! ",
-        Text = "Silahkan ke browser dan paste linknya",
+        Title = "Link berhasil di copy! ",
+        Text = "Buka browser dan paste linknya",
         Duration = 3
     })
 end)
